@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AccessWay Design System - Accessibility-First, Calm, Inclusive */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Primary Palette - Soft Accessibility Greens */
+    --background: 100 25% 95%; /* #F5F2EC warm off-white */
+    --foreground: 160 20% 15%; /* #1F2D2B dark charcoal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 20% 15%;
+
+    /* Primary Green - Brand Color */
+    --primary: 150 30% 55%; /* #6FAF8F sage green */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light Mint */
+    --secondary: 120 30% 94%; /* #EAF6EA light mint */
+    --secondary-foreground: 160 20% 15%;
+
+    /* Muted */
+    --muted: 120 15% 90%;
+    --muted-foreground: 160 10% 40%; /* #5F6F6A */
+
+    /* Accent - Warm Amber */
+    --accent: 38 85% 72%; /* #F4C27A soft amber */
+    --accent-foreground: 160 20% 15%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 85%;
+    --input: 120 15% 85%;
+    --ring: 150 30% 55%;
+
+    --radius: 1rem;
+
+    /* Custom AccessWay Tokens */
+    --sage: 150 30% 55%;
+    --sage-light: 120 30% 94%;
+    --sage-dark: 150 25% 45%;
+    --cream: 40 30% 96%;
+    --amber: 38 85% 72%;
+    --charcoal: 160 20% 15%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 30% 94%) 0%, hsl(100 25% 95%) 50%, hsl(40 30% 96%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(120 30% 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(150 30% 55%) 0%, hsl(150 35% 45%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(160 20% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(160 20% 15% / 0.1);
+    --shadow-elevated: 0 20px 50px -15px hsl(160 20% 15% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 120 15% 95%;
+
+    --card: 160 15% 12%;
+    --card-foreground: 120 15% 95%;
+
+    --popover: 160 15% 12%;
+    --popover-foreground: 120 15% 95%;
+
+    --primary: 150 35% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 15% 18%;
+    --secondary-foreground: 120 15% 95%;
+
+    --muted: 160 15% 20%;
+    --muted-foreground: 120 10% 65%;
+
+    --accent: 38 70% 60%;
+    --accent-foreground: 160 20% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 160 15% 20%;
+    --input: 160 15% 20%;
+    --ring: 150 35% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-cta {
+    background: var(--gradient-cta);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .phone-mockup {
+    @apply relative bg-charcoal rounded-[2.5rem] p-2 shadow-elevated;
+  }
+
+  .phone-screen {
+    @apply rounded-[2rem] overflow-hidden bg-secondary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
