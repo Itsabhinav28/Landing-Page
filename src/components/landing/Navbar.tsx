@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Globe, Accessibility } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import mainLogo from "@/assets/Main Logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,10 +44,12 @@ const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-soft group-hover:shadow-card transition-shadow">
-              <Globe className="w-5 h-5 text-primary-foreground" strokeWidth={2} />
-              <Accessibility className="w-3 h-3 text-primary-foreground absolute bottom-1 right-1" strokeWidth={2.5} />
-              <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative w-16 h-16 flex items-center justify-center">
+              <img 
+                src={mainLogo} 
+                alt="AccessWay Logo" 
+                className="w-full h-full object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-foreground tracking-tight">AccessWay</span>

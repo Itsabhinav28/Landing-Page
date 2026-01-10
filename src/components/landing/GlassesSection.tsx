@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
-import { Eye, Headphones, Vibrate, ShieldAlert, Hand, Sparkles } from "lucide-react";
-import smartGlassesImage from "@/assets/smart-glasses.png";
+import { Eye, Headphones, Vibrate, ShieldAlert, Hand, Sparkles, Cpu, Box } from "lucide-react";
+import smartGlassesImage from "@/assets/smart-glasses.jpg";
 
 const features = [
   {
@@ -64,7 +64,7 @@ const GlassesSection = () => {
       </div>
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left - Content */}
           <motion.div
             initial="hidden"
@@ -99,7 +99,7 @@ const GlassesSection = () => {
               independence like never before.
             </motion.p>
 
-            <motion.div variants={containerVariants} className="space-y-3">
+            <motion.div variants={containerVariants} className="space-y-3 lg:mt-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -123,15 +123,15 @@ const GlassesSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right - Glasses Visual */}
+          {/* Right - Multi-Image Visual Layout */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-start justify-center lg:pt-0"
           >
-            <div className="relative">
+            <div className="relative w-full max-w-2xl pb-32 lg:pb-40">
               {/* Animated glow rings */}
               <motion.div
                 animate={{
@@ -159,11 +159,78 @@ const GlassesSection = () => {
                 className="absolute inset-0 bg-gradient-to-l from-primary/20 to-accent/20 rounded-full blur-2xl scale-125"
               />
 
-              {/* Main glasses image */}
+              {/* Secondary Image 1 - 3D Model (Bottom Left) */}
+              {false && (
+                <motion.div
+                  initial={{ opacity: 0, x: -40, y: 40 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ 
+                    y: [0, -8, 0],
+                    rotate: [0, 1, 0]
+                  }}
+                  transition={{
+                    default: { duration: 0.6, delay: 0.2 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                    rotate: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }
+                  }}
+                  whileHover={{ scale: 1.08, zIndex: 10, rotate: 2 }}
+                  className="absolute top-full mt-8 -left-20 lg:mt-12 lg:-left-24 w-36 h-36 lg:w-44 lg:h-44 z-20"
+                >
+                  <div className="relative w-full h-full bg-gradient-to-br from-card/95 to-secondary/95 backdrop-blur-md rounded-2xl p-3 shadow-elevated border border-border/60 hover:border-primary/50 transition-all duration-300">
+                    <div className="w-full h-full bg-gradient-to-br from-sage-light/60 to-cream/60 rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Box className="w-14 h-14 lg:w-18 lg:h-18 text-primary/70" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 bg-primary/25 backdrop-blur-sm rounded-lg px-2 py-1 border border-primary/40 shadow-sm">
+                      <span className="text-[10px] lg:text-xs font-medium text-primary">3D Model</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Secondary Image 2 - 3D Model (Bottom Right) */}
+              {false && (
+                <motion.div
+                  initial={{ opacity: 0, x: 40, y: 40 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ 
+                    y: [0, -8, 0],
+                    rotate: [0, -1, 0]
+                  }}
+                  transition={{
+                    default: { duration: 0.6, delay: 0.3 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
+                    rotate: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }
+                  }}
+                  whileHover={{ scale: 1.08, zIndex: 10, rotate: -2 }}
+                  className="absolute top-full mt-8 -right-20 lg:mt-12 lg:-right-24 w-36 h-36 lg:w-44 lg:h-44 z-20"
+                >
+                  <div className="relative w-full h-full bg-gradient-to-br from-card/95 to-secondary/95 backdrop-blur-md rounded-2xl p-3 shadow-elevated border border-border/60 hover:border-primary/50 transition-all duration-300">
+                    <div className="w-full h-full bg-gradient-to-br from-sage-light/60 to-cream/60 rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Box className="w-14 h-14 lg:w-18 lg:h-18 text-primary/70" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 bg-primary/25 backdrop-blur-sm rounded-lg px-2 py-1 border border-primary/40 shadow-sm">
+                      <span className="text-[10px] lg:text-xs font-medium text-primary">3D Model</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Primary - Main glasses image (Center) */}
               <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-gradient-to-br from-card via-card to-secondary rounded-3xl p-8 shadow-elevated border border-border/50 backdrop-blur-sm"
+                className="relative bg-gradient-to-br from-card via-card to-secondary rounded-3xl p-8 shadow-elevated border border-border/50 backdrop-blur-sm z-30"
               >
                 <img
                   src={smartGlassesImage}
@@ -220,6 +287,42 @@ const GlassesSection = () => {
                   </span>
                 </div>
               </motion.div>
+
+              {/* Secondary Image 3 - Internal Circuit (Bottom Center, Below Specs) */}
+              {false && (
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ 
+                    y: [0, -6, 0]
+                  }}
+                  transition={{
+                    default: { duration: 0.6, delay: 0.4 },
+                    y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 }
+                  }}
+                  whileHover={{ scale: 1.08, zIndex: 10 }}
+                  className="absolute top-full mt-8 left-1/2 -translate-x-1/2 lg:mt-12 w-44 h-36 lg:w-52 lg:h-40 z-20"
+                >
+                  <div className="relative w-full h-full bg-gradient-to-br from-card/95 to-secondary/95 backdrop-blur-md rounded-2xl p-3 shadow-elevated border border-border/60 hover:border-primary/50 transition-all duration-300">
+                    <div className="w-full h-full bg-gradient-to-br from-sage-light/60 to-cream/60 rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Cpu className="w-14 h-14 lg:w-18 lg:h-18 text-primary/70" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                        <div className="absolute inset-0 opacity-25">
+                          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M20,50 L40,50 M60,50 L80,50 M50,20 L50,40 M50,60 L50,80" stroke="currentColor" strokeWidth="1.5" fill="none" className="text-primary" />
+                            <circle cx="50" cy="50" r="4" fill="currentColor" className="text-primary" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary/25 backdrop-blur-sm rounded-lg px-2 py-1 border border-primary/40 shadow-sm">
+                      <span className="text-[10px] lg:text-xs font-medium text-primary">Circuit Board</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight, Globe, Accessibility } from "lucide-react";
+import splashScreen from "@/assets/Splash screen.jpg";
 
 const HeroSection = () => {
   return (
@@ -36,9 +37,20 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start animate-fade-up stagger-3">
-              <Button variant="hero" size="xl" className="w-full sm:w-auto">
-                <Play className="w-5 h-5" />
-                Watch Demo
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="w-full sm:w-auto"
+                asChild
+              >
+                <a 
+                  href="https://1drv.ms/v/c/6DA338F03C89AD64/IQAn0KQCaVuUSLm2fsKHNse9AXSmzx5unSC2qEtaESADfKU?e=ZDP956" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Play className="w-5 h-5" />
+                  Watch Demo
+                </a>
               </Button>
               <Button variant="heroOutline" size="xl" className="w-full sm:w-auto">
                 Explore the Product
@@ -73,16 +85,12 @@ const HeroSection = () => {
 
               {/* Phone Mockup */}
               <div className="phone-mockup w-[280px] sm:w-[320px] shadow-elevated">
-                <div className="phone-screen aspect-[9/19] bg-sage-light flex flex-col items-center justify-center p-8">
-                  {/* App Logo */}
-                  <div className="w-28 h-28 bg-card rounded-3xl shadow-card flex items-center justify-center mb-6">
-                    <div className="relative">
-                      <Globe className="w-14 h-14 text-primary" strokeWidth={1.5} />
-                      <Accessibility className="w-7 h-7 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    </div>
-                  </div>
-                  <h2 className="text-2xl font-bold text-foreground mb-2">AccessWay</h2>
-                  <p className="text-muted-foreground text-lg">Accessibility in_</p>
+                <div className="phone-screen aspect-[9/19] overflow-hidden">
+                  <img 
+                    src={splashScreen} 
+                    alt="AccessWay Splash Screen" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>

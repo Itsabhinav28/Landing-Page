@@ -1,34 +1,45 @@
-import { Settings2, Map, Volume2, Flag } from "lucide-react";
 import { motion } from "framer-motion";
+import personalizeImg from "@/assets/Types of dissabilitites.jpg";
+import routesImg from "@/assets/Route.jpg";
+import navigateImg from "@/assets/AR Navigation.jpg";
+import aiGuideImg from "@/assets/AI Guide Bot.jpg";
+import obstacleDetectionImg from "@/assets/Object Detection via Cam.jpg";
 
 const steps = [
   {
     step: "01",
     title: "Personalize",
     description: "Select your accessibility needs — visual, hearing, mobility, or cognitive support.",
-    icon: Settings2,
+    image: personalizeImg,
     gradient: "from-blue-500/20 to-purple-500/20",
   },
   {
     step: "02",
     title: "Get Routes",
     description: "AI generates the safest, most accessible path with ramps, elevators, and clear pathways.",
-    icon: Map,
+    image: routesImg,
     gradient: "from-green-500/20 to-teal-500/20",
   },
   {
     step: "03",
     title: "Navigate",
     description: "Get turn-by-turn guidance with audio, AR overlays, and haptic vibration alerts.",
-    icon: Volume2,
+    image: navigateImg,
     gradient: "from-amber-500/20 to-orange-500/20",
   },
   {
     step: "04",
-    title: "Contribute",
-    description: "Report issues and help keep accessibility data current for the community.",
-    icon: Flag,
-    gradient: "from-pink-500/20 to-rose-500/20",
+    title: "AI/AR Guide",
+    description: "Interactive virtual assistant with real-time visual guidance and conversational support.",
+    image: aiGuideImg,
+    gradient: "from-purple-500/20 to-pink-500/20",
+  },
+  {
+    step: "05",
+    title: "Obstacle Detection",
+    description: "Real-time object and obstacle detection via smart glasses with live visual feedback.",
+    image: obstacleDetectionImg,
+    gradient: "from-emerald-500/20 to-teal-500/20",
   },
 ];
 
@@ -68,7 +79,7 @@ const ProductSection = () => {
             Accessibility made <span className="text-primary">simple</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Four simple steps to navigate any space independently and confidently.
+            Five simple steps to navigate any space independently and confidently.
           </p>
         </motion.div>
 
@@ -78,7 +89,7 @@ const ProductSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8"
         >
           {steps.map((step, index) => (
             <motion.div 
@@ -100,27 +111,13 @@ const ProductSection = () => {
                   {/* Phone Notch */}
                   <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-5 bg-charcoal rounded-full z-10" />
                   
-                  {/* Screen Container - Image Placeholder */}
+                  {/* Screen Container - Actual Screenshot */}
                   <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-sage-light to-cream aspect-[9/18]">
-                    {/* Placeholder for app screenshot */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center mb-4 shadow-lg`}>
-                        <step.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1">App Screenshot</p>
-                        <p className="text-sm font-semibold text-foreground">{step.title}</p>
-                      </div>
-                      {/* Decorative grid lines */}
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="absolute inset-x-0 top-1/4 h-px bg-charcoal" />
-                        <div className="absolute inset-x-0 top-2/4 h-px bg-charcoal" />
-                        <div className="absolute inset-x-0 top-3/4 h-px bg-charcoal" />
-                        <div className="absolute inset-y-0 left-1/4 w-px bg-charcoal" />
-                        <div className="absolute inset-y-0 left-2/4 w-px bg-charcoal" />
-                        <div className="absolute inset-y-0 left-3/4 w-px bg-charcoal" />
-                      </div>
-                    </div>
+                    <img 
+                      src={step.image} 
+                      alt={`${step.title} screen`}
+                      className="w-full h-full object-cover"
+                    />
                     
                     {/* Shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -140,14 +137,9 @@ const ProductSection = () => {
               </div>
 
               {/* Step Info */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-sage-light flex items-center justify-center flex-shrink-0 shadow-soft group-hover:shadow-card transition-shadow">
-                  <step.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             </motion.div>
           ))}

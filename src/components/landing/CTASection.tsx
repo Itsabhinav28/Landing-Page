@@ -123,23 +123,65 @@ const CTASection = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="cta" size="xl" className="w-full sm:w-auto shadow-elevated hover:shadow-xl transition-shadow group">
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+              <Button 
+                variant="cta" 
+                size="xl" 
+                className="w-full sm:w-auto shadow-elevated hover:shadow-xl transition-shadow group"
+                asChild
+              >
+                <a 
+                  href="https://1drv.ms/v/c/6DA338F03C89AD64/IQAn0KQCaVuUSLm2fsKHNse9AXSmzx5unSC2qEtaESADfKU?e=ZDP956" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  <Play className="w-5 h-5 fill-current" />
-                </motion.div>
-                Watch 2-min Demo
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <Play className="w-5 h-5 fill-current" />
+                  </motion.div>
+                  Watch 2-min Demo
+                </a>
               </Button>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="heroOutline" size="xl" className="w-full sm:w-auto shadow-soft hover:shadow-card transition-shadow bg-card/80 backdrop-blur-sm">
-                <FileText className="w-5 h-5" />
-                View Pitch Deck
+              <Button 
+                variant="heroOutline" 
+                size="xl" 
+                className="w-full sm:w-auto shadow-soft hover:shadow-card transition-shadow bg-card/80 backdrop-blur-sm"
+                asChild
+              >
+                <a 
+                  href="https://drive.google.com/drive/u/0/folders/1va8aUdA_wA2eRAnx4Wn-HdZnM4MKNTng" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <FileText className="w-5 h-5" />
+                  View Pitch Deck
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                variant="heroOutline" 
+                size="xl" 
+                className="w-full sm:w-auto shadow-soft hover:shadow-card transition-shadow bg-card/80 backdrop-blur-sm"
+                asChild
+              >
+                <a 
+                  href="https://1drv.ms/v/c/6DA338F03C89AD64/IQBeyXGV5x66RI5Ab8KuY261ASRxDEX3ACZlKx7f4Kmxkbc?e=TyOWIv" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Play className="w-5 h-5" />
+                  Watch Pitch Video
+                </a>
               </Button>
             </motion.div>
           </motion.div>
