@@ -139,7 +139,8 @@ const ProductSection = () => {
               {/* Step Info */}
               <div>
                 <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-2">{step.description}</p>
+                <span className="inline-block text-[10px] px-2 py-1 bg-primary/10 text-primary rounded-full font-medium">Available in App</span>
               </div>
             </motion.div>
           ))}

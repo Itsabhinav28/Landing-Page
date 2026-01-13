@@ -68,8 +68,11 @@ const SolutionSection = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Meet <span className="text-primary">AccessWay</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+            <p className="text-lg text-muted-foreground mb-4 max-w-lg">
               AccessWay helps people move independently, safely, and confidently using AI-powered accessible routing, real-time obstacle detection, and smart assistance.
+            </p>
+            <p className="text-sm text-muted-foreground/80 mb-8 max-w-lg">
+              AccessWay operates as a mobile-first platform, enhanced by optional smart hardware for hands-free assistance.
             </p>
 
             <div className="space-y-4 mb-8">

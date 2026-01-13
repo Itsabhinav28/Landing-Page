@@ -184,6 +184,17 @@ const CTASection = () => {
                 </a>
               </Button>
             </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <a 
+                href="#product"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                View Technical Architecture →
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* Trust Badges */}

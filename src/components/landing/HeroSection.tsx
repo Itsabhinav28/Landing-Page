@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight, Globe, Accessibility } from "lucide-react";
+import { motion } from "framer-motion";
 import splashScreen from "@/assets/Splash screen.jpg";
+import smartGlassesImage from "@/assets/smart-glasses-removebg-preview.png";
 
 const HeroSection = () => {
   return (
@@ -31,9 +33,19 @@ const HeroSection = () => {
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-up stagger-2 text-balance">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-4 animate-fade-up stagger-2 text-balance">
               AI-powered navigation and smart assistance for people with disabilities — indoors and outdoors.
             </p>
+            <p className="text-sm text-muted-foreground/80 max-w-xl mx-auto lg:mx-0 mb-6 animate-fade-up stagger-2">
+              Designed for real-world accessibility — combining AI navigation, smart wearables, and community-verified data.
+            </p>
+            
+            {/* Micro-tags */}
+            <div className="flex flex-wrap items-center gap-2 justify-center lg:justify-start mb-8 animate-fade-up stagger-2">
+              <span className="text-xs px-3 py-1 bg-card/60 backdrop-blur-sm border border-border/30 rounded-full text-muted-foreground">AI-Assisted Navigation</span>
+              <span className="text-xs px-3 py-1 bg-card/60 backdrop-blur-sm border border-border/30 rounded-full text-muted-foreground">Smart Glasses Compatible</span>
+              <span className="text-xs px-3 py-1 bg-card/60 backdrop-blur-sm border border-border/30 rounded-full text-muted-foreground">Indoor & Outdoor Support</span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start animate-fade-up stagger-3">
@@ -93,6 +105,99 @@ const HeroSection = () => {
                   />
                 </div>
               </div>
+
+              {/* Floating Smart Glasses - Purely Transparent */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: 15 }}
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1,
+                  rotate: [0, -5, 5, 0],
+                  y: [0, -15, 0],
+                  x: [0, -8, 8, 0]
+                }}
+                transition={{ 
+                  opacity: { duration: 1, delay: 0.5 },
+                  scale: { duration: 0.8, delay: 0.5 },
+                  rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                  x: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }
+                }}
+                className="absolute -bottom-8 right-16 lg:-bottom-32 lg:right-8 w-[432px] h-[432px] lg:w-[480px] lg:h-[480px] z-30 pointer-events-none"
+              >
+                {/* Glowing orb effect behind glasses */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-primary/40 via-sage-light/30 to-accent/20 rounded-full blur-2xl -z-10"
+                />
+                
+                {/* Purely transparent glasses image */}
+                <div className="relative w-full h-full">
+                  <img 
+                    src={smartGlassesImage} 
+                    alt="AccessWay Smart Glasses" 
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                  />
+                  
+                  {/* Floating particles around glasses */}
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1.5 h-1.5 bg-primary rounded-full"
+                      style={{
+                        top: `${20 + (i % 3) * 30}%`,
+                        left: `${15 + (i % 2) * 70}%`,
+                      }}
+                      animate={{
+                        y: [0, -15, 0],
+                        x: [0, 10, 0],
+                        opacity: [0.4, 0.8, 0.4],
+                        scale: [1, 1.5, 1],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.3,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Connecting line to phone - curved line from bottom-right glasses to phone */}
+                <motion.svg
+                  className="absolute top-1/2 -left-12 lg:-left-16 w-16 lg:w-20 h-0.5 z-0"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1.5, delay: 1 }}
+                  style={{ transform: 'rotate(-45deg)', transformOrigin: 'right center' }}
+                >
+                  <motion.path
+                    d="M 0 0 Q -20 -20 -40 0"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeDasharray="4 4"
+                    opacity="0.3"
+                    animate={{
+                      strokeDashoffset: [0, -8],
+                    }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                </motion.svg>
+              </motion.div>
             </div>
           </div>
         </div>

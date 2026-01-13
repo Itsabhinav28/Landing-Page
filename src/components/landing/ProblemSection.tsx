@@ -96,8 +96,11 @@ const ProblemSection = () => {
             </span>
             {" "}— not for accessibility.
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-2">
             1.3 billion people worldwide face barriers every day that most navigation apps simply ignore.
+          </p>
+          <p className="text-sm text-muted-foreground/80 italic">
+            Most mainstream navigation tools prioritize speed and distance rather than accessibility-specific constraints.
           </p>
         </motion.div>
 

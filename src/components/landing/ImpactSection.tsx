@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: TrendingUp,
-    value: "∞",
+    value: "100+",
     label: "Scalable impact potential",
     gradient: "from-amber-500 to-orange-500",
   },
@@ -84,8 +84,11 @@ const ImpactSection = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Why <span className="text-primary">AccessWay</span> Matters
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-2">
             Accessibility-first cities and businesses create a more inclusive world for everyone.
+          </p>
+          <p className="text-sm text-muted-foreground/80 italic">
+            Initial pilots focus on campuses, malls, and controlled indoor environments before city-scale expansion.
           </p>
         </motion.div>
 
@@ -95,14 +98,14 @@ const ImpactSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="flex flex-wrap justify-center gap-6 mb-16"
         >
-          {stats.map((stat) => (
+          {stats.slice(0, 3).map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="group bg-card rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/30 text-center relative overflow-hidden"
+              className="group bg-card rounded-3xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50 hover:border-primary/30 text-center relative overflow-hidden w-full sm:w-[280px] max-w-sm"
             >
               {/* Gradient overlay on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
